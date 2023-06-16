@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/navBar';
+import Homescreen from './screens/homeScreen';
 
 function App() {
   return (
     <div className="App">
-      <h1>SN RESTUARANT</h1>
+      <Navbar/>
+      <Homescreen/>
     </div>
   );
 }
