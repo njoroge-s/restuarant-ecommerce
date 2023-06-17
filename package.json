@@ -1,0 +1,25 @@
+{
+  "name": "ray-restuarant",
+  "version": "1.0.0",
+  "description": "this is a restuarant food order app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njoroge-s/restuarant-ecommerce.git"
+  },
+  "author": "Serah Njoroge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njoroge-s/restuarant-ecommerce/issues"
+  },
+  "homepage": "https://github.com/njoroge-s/restuarant-ecommerce#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.0",
+    "nodemon": "^2.0.22"
+  }
+}
