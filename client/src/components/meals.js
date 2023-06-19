@@ -9,7 +9,9 @@ export default function meals({meals}){
     const handleShow = () => setShow(true);
 
     return(
-        <div style={{margin:"70px"}} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <div className="shadow-lg p-3 mb-5 bg-white rounded"
+        key={meals._id}
+        >
             <div onClick={handleShow}>
                 <h1>{meals.name}</h1>
                 <img src={meals.imageUrl} className='img.fluid' style={{height:'200px', width:'200px'}}/>

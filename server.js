@@ -2,12 +2,14 @@ import { ifError } from "assert";
 import express from "express";
 const meals = require("./models/mealsModel")
 
-const db = require("./db")
+const db = require("./db.js")
 const app = express();
 
 app.use(express.json());
 
+const mealsRoute = require("./routes/mealsRoute")
 
+app.use("/api/meals/", mealsRoute)
 
  app.get("/", (req, res) => {
     res.send("Server working");
