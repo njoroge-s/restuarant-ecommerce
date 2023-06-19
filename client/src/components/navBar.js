@@ -6,7 +6,7 @@ export default function Navbar() {
     return (
         <div>
         <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
                 RAY RESTUARANT
             </a>
             <button 
@@ -27,7 +27,7 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">
+                        <a className="nav-link" href="/cart">
                             Cart {cartState.cartItems.length}
                             </a>
                     </li>

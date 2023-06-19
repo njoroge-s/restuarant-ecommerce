@@ -3,7 +3,7 @@ import {Modal} from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart } from "../actions/cartAction";
 
-export default function meals({meals}){
+export default function meals({meals}){ 
     const[quantity, setquantity] = useState(1)
     const[varient, setvarient] = useState("small")
     const [show, setShow] = useState(false);

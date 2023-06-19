@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux"
+
 export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
 
     var cartItem ={
@@ -13,6 +15,12 @@ export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
 
     dispatch({type:"ADD_TO_CART", payload: cartItem})
 
+    const cartItems = getState().cartReducer.cartItems
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+}
 
-    localStorage.setItem("cartItems", )
+export const deleteFromCart = (meals) => dispatch=>{
+
+    dispatch({type: "DELETE_FROM_CART", payload:meals})
+
 }
