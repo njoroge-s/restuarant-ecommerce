@@ -1,8 +1,8 @@
-import { ifError } from "assert";
+
 import express from "express";
 const meals = require("./models/mealsModel")
 
-const db = require("./db.js")
+const db = require("./db")
 const app = express();
 
 app.use(express.json());

@@ -7,20 +7,39 @@ export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
         _id : meals._id,
         image : meals.imageUrl,
         varient : varient,
-        quantity : quantity,
+        quantity : Number(quantity),
         prices : meals.prices,
         price : meals.prices[0][varient] * quantity
 
     }
 
-    dispatch({type:"ADD_TO_CART", payload: cartItem})
+    if(cartItem.quantity > 10)
+    {
+        alert ("Maximum items is 10")
+    }
+    else{
+        if(cartItem.quantity<=0)
+        {
+            dispatch({type: "DELETE_FROM_CART", payload:meals})
+        }
+        else{
+            dispatch({type:"ADD_TO_CART", payload: cartItem})
+    
+        }
+    }
+        
+
+    
 
     const cartItems = getState().cartReducer.cartItems
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
 }
 
-export const deleteFromCart = (meals) => dispatch=>{
+export const deleteFromCart = (meals) => (dispatch, getState)=>{
 
     dispatch({type: "DELETE_FROM_CART", payload:meals})
+    const cartItems = getState().cartReducer.cartItems
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+
 
 }

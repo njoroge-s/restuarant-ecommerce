@@ -1,10 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter, Route, Link, Switch} from "react-router-dom"
-import Navbar from './components/navBar';
-import Homescreen from './screens/homeScreen';
-import cartScreen from './screens/cartScreen';
+import logo from "./logo.svg"
+import "./App.css";
+import bootstap from "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import {BrowserRouter, Route} from "react-router-dom"
+import Navbar from "./components/navBar";
+import Homescreen from "./screens/homeScreen";
+import cartScreen from "./screens/cartScreen";
+import registerScreen from "./screens/registerScreen";
+import logInScreen from "./screens/logInScreen";
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
 
       <BrowserRouter>
 
-      <Route path='/' exact Component={Homescreen} />
-      <Route path='cart' exact Component={cartScreen} />
+      <Route path="/" exact Component={Homescreen} />
+      <Route path="cart" exact Component={cartScreen} />
+      <Route path="/register" exact Component={registerScreen}/>
+      <Route path="/login" exact Component={logInScreen}/>
       </BrowserRouter>
       
     </div>
