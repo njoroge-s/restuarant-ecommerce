@@ -11,7 +11,7 @@ export default function registerScreen () {
     const[password, setpassword] = useState('');
     const [cpassword, setcpassword] =useState('');
     const registerstate = useSelector(state=>state.registerUserReducer)
-    const {error, loading, succcess} = registerstate
+    const {error, loading, success} = registerstate
     
     const dispatch = useDispatch()
 
@@ -39,7 +39,7 @@ export default function registerScreen () {
                 <div className="col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
 
                     {loading && (<Loading/>)}
-                    {succcess && (<Success success='User registered successfully'/>)}
+                    {success && (<Success success='User registered successfully'/>)}
                     {error && (<Error error='Email already registered'/>)}
                     
                     <h2 className="text-center m-2" style={{fontSize: '35px'}}>Register</h2>
