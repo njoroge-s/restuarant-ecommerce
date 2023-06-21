@@ -5,11 +5,13 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import { getAllMealsReducer } from "./reducers/mealsReducers";
 import { cartReducer } from "./reducers/cartReducers";
 import { registerUserReducer } from "./reducers/userReducer";
+import { placeOrderReducer } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
     getAllMealsReducer: getAllMealsReducer,
     cartReducer : cartReducer,
-    registerUserReducer : registerUserReducer
+    registerUserReducer : registerUserReducer,
+    placeOrderReducer: placeOrderReducer
 })
 
 const cartItems = localStorage.getItem("cartItems") ?JSON.parse(localStorage.getItem("cartItems")) : []

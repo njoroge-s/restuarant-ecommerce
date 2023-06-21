@@ -9,10 +9,11 @@ app.use(express.json());
 
 const mealsRoute = require("./routes/mealsRoute")
 const userRoute = require("./routes/userRoute")
+const ordersRoute = require("./routes/ordersRoute")
 
 app.use("/api/meals/", mealsRoute)
-
 app.use("/api/users/", userRoute)
+app.use("/api/orders/", ordersRoute)
 
  app.get("/", (req, res) => {
     res.send("Server working");
