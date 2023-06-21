@@ -8,8 +8,11 @@ const app = express();
 app.use(express.json());
 
 const mealsRoute = require("./routes/mealsRoute")
+const userRoute = require("./routes/userRoute")
 
 app.use("/api/meals/", mealsRoute)
+
+app.use("/api/users/", userRoute)
 
  app.get("/", (req, res) => {
     res.send("Server working");

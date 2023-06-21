@@ -1,6 +1,7 @@
 import logo from "./logo.svg"
 import "./App.css";
-import bootstap from "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap'
 import {BrowserRouter, Route} from "react-router-dom"
 import Navbar from "./components/navBar";
 import Homescreen from "./screens/homeScreen";
