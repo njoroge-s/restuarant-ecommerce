@@ -32,3 +32,9 @@ export const loginUser=(user)=>async dispatch=>{
 
     }
 }
+
+export const logoutuser = () => dispatch=>{
+
+    localStorage.removeItem('currentUser')
+    window.location.href='/login'
+}
