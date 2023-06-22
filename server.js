@@ -1,6 +1,6 @@
 
 import express, { json } from "express";
-import mealsModel from "./models/mealsModel";
+import meals from "./models/mealsModel";
 import {find} from "./models/mealsModel";
 import mealsRoute from "./routes/mealsRoute";
 import userRoute from "./routes/userRoute";
