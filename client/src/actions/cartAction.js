@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 
 export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
 

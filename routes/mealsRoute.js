@@ -1,6 +1,6 @@
-import { Router } from "express";
-import { models } from "mongoose";
-const  meals = require("../models/mealsModel")
+import Router from "express";
+import mongoose from "mongoose";
+import meals from "../models/mealsModel";
 
 const router = Router();
 
@@ -14,4 +14,4 @@ router.get("/getallmeals", async(req, res)=>{
     }
 
 })
-module.exports = router;
+export default router;

@@ -1,15 +1,18 @@
 
-import express from "express";
-const meals = require("./models/mealsModel")
+import express, { json } from "express";
+import mealsModel from "./models/mealsModel";
+import {find} from "./models/mealsModel";
+import mealsRoute from "./routes/mealsRoute";
+import userRoute from "./routes/userRoute";
+import ordersRoute from "./routes/ordersRoute";
 
-const db = require("./db")
+
+import db from "./db";
 const app = express();
 
-app.use(express.json());
+app.use(json());
 
-const mealsRoute = require("./routes/mealsRoute")
-const userRoute = require("./routes/userRoute")
-const ordersRoute = require("./routes/ordersRoute")
+
 
 app.use("/api/meals/", mealsRoute)
 app.use("/api/users/", userRoute)
@@ -20,7 +23,7 @@ app.use("/api/orders/", ordersRoute)
  });
 
  app.get("/getmeals", (req, res) => {
-    meals.find({}, (docs) =>{
+    find({}, (docs) =>{
         if(err){
             console.log(err);
         }

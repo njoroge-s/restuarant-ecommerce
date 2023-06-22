@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { addtocart } from "../actions/cartAction";
 
 export default function meals({meals}){ 
+    const dispatch = useDispatch()
     const[quantity, setquantity] = useState(1)
     const[varient, setvarient] = useState("small")
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const dispatch = useDispatch()
     function addtocart()
     {
         dispatch(addtocart(meals, quantity, varient))

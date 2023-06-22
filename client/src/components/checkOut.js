@@ -8,9 +8,10 @@ import Error from "../components/error";
 
 export default function Checkout(subtotal){
 
+    const dispatch = useDispatch()
     const orderstate = useSelector((state) => state.placeOrderReducer)
     const {loading, error, success} = orderstate
-    const dispatch = useDispatch()
+    
     function tokenHandler(token)
     {
         console.log(token);

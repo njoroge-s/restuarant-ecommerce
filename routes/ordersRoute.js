@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 const stripe = require("stripe")("sk_test_51NLNoeFuShHkWGBYpcOvrhGmv2EeDXqE5cuZmdhe9jXJJYB8ERjbKWWy5DaPJl0jAs576Yqcfnx7TtnK098IOO8M00y0qiuNaH");
-const { v4: uuidv4 } = require("uuid");
- const order = require("../models/orderModel")
+import { v4 as uuidv4 } from "uuid";
+ import order, { find } from "../models/orderModel";
 
 router.post('/placeorder', async(req, res) =>{
 
@@ -58,11 +58,11 @@ router.post ("/getuserorders", async(req, res) =>{
 
     const {userId} = req.body
     try {
-        const orders = await order.find({userId: userId}).sort({_id: -1})
+        const orders = await find({userId: userId}).sort({_id: -1})
         res.send(orders)
     } catch (error) {
         return res.status(400).json({message:'Something went wrong'});
     }
 
 });
-module.exports=router
+export default router

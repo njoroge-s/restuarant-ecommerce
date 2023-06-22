@@ -6,11 +6,12 @@ import Loading from "../components/loading";
 
 export default function logInScreen() {
 
+    const dispatch = useDispatch ()
     const[email, setemail] = useState('');
     const[password, setpassword] = useState('');
     const loginstate = useSelector(state=>state.loginUserReducer)
     const {loading, error} = loginstate
-    const dispatch = useDispatch ()
+    
     
     useEffect(()=>{
         if(localStorage.getItem('currentUser'))

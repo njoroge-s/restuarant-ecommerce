@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const mealsSchema = mongoose.Schema({
+const mealsSchema = Schema({
     name: {type: String, require},
     varients: [],
     prices:[],
@@ -11,6 +11,6 @@ const mealsSchema = mongoose.Schema({
 }, {
     timeStramps:true,
 })
-const mealsModel = mongoose.model("meals", mealsSchema)
+const mealsModel = model("meals", mealsSchema)
 
-module.exports = mealsModel
+export default mealsModel

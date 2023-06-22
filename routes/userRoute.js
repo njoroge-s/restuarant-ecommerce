@@ -1,6 +1,6 @@
 const express = require("express");
 import user from "../models/userModel";
-const router = Router();
+const router = router();
 
 router.post("/register", async(req, res) => {
 
