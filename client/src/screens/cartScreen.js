@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addtocart } from "../actions/cartAction.js";
-import { deleteFromCart } from "../actions/cartAction.js";
-import Checkout from "../components/checkOut.js";
-export default function cartScreen(){
+import { addtocart } from "../actions/cartAction";
+import { deleteFromCart } from "../actions/cartAction";
+import Checkout from "../components/checkOut";
+export default function CartScreen(){
 
     const cartState = useSelector(state=>state.cartReducer)
     const cartItems = cartState.cartItems
@@ -39,7 +39,7 @@ export default function cartScreen(){
                     
                 </div>
                 <div className="col-md-4 text-right">
-                    <h2 style={{fontSize:"45px"}}>Subtotal: {subtotal} /-</h2>
+                    <h2 style={{fontSize:"45px"}}>SubTotal: {subtotal} /-</h2>
                     < Checkout subtotal={subtotal}/>
 
                 </div>

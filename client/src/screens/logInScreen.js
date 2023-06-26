@@ -4,7 +4,7 @@ import { loginUser } from "../actions/userActions";
 import Error from "../components/error";
 import Loading from "../components/loading";
 
-export default function logInScreen() {
+export default function LogInScreen() {
 
     const dispatch = useDispatch ()
     const[email, setemail] = useState('');

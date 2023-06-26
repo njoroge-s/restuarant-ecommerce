@@ -1,4 +1,4 @@
-export const getAllMealsReducer = (state={meals :[]}, action) =>{
+export const getAllMealsReducer = (state={meals : []}, action) =>{
     switch(action.type)
     {
         case "GET_MEALS_REQUEST": return{

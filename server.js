@@ -1,17 +1,14 @@
+const express = require("express");
 
-import express, { json } from "express";
-import meals from "./models/mealsModel";
-import {find} from "./models/mealsModel";
-import mealsRoute from "./routes/mealsRoute";
-import userRoute from "./routes/userRoute";
-import ordersRoute from "./routes/ordersRoute";
+const Meals = require("./models/mealsModel");
 
-
-import db from "./db";
 const app = express();
+const db = require("./db.js");
+app.use(express.json());
 
-app.use(json());
-
+const mealsRoute = require("./routes/mealsRoute");
+const userRoute = require("./routes/userRoute");
+const ordersRoute = require("./routes/ordersRoute");
 
 
 app.use("/api/meals/", mealsRoute)
@@ -23,7 +20,7 @@ app.use("/api/orders/", ordersRoute)
  });
 
  app.get("/getmeals", (req, res) => {
-    find({}, (docs) =>{
+    Meals.find({}, (err, docs) =>{
         if(err){
             console.log(err);
         }
@@ -34,4 +31,4 @@ app.use("/api/orders/", ordersRoute)
  });
  const port = process.env.PORT || 5000;
 
- app.listen(port, () => "Server running on port")
+ app.listen(port, () => "Server running on port");

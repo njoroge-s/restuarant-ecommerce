@@ -1,8 +1,8 @@
-import { Router } from "express";
-const router = Router();
+const express = require("express");
+const router = express.Router();
 const stripe = require("stripe")("sk_test_51NLNoeFuShHkWGBYpcOvrhGmv2EeDXqE5cuZmdhe9jXJJYB8ERjbKWWy5DaPJl0jAs576Yqcfnx7TtnK098IOO8M00y0qiuNaH");
-import { v4 as uuidv4 } from "uuid";
- import order, { find } from "../models/orderModel";
+const { v4 : uuidv4 } = require("uuid") ;
+const  order = require("../models/orderModel");
 
 router.post('/placeorder', async(req, res) =>{
 
@@ -15,7 +15,7 @@ router.post('/placeorder', async(req, res) =>{
         })
         const payment = await stripe.charges.create({
             amount: subtotal*100,
-            currency: 'KSH',
+            currency: 'ksh',
             customer: customer.id,
             receipt_email: token.email
         }, {
@@ -28,7 +28,7 @@ router.post('/placeorder', async(req, res) =>{
             const neworder = new order ({
                 name: currentUser.name,
                 email: currentUser.email,
-                userId: currentUser._id,
+                userid: currentUser._id,
                 orderItems: cartItems,
                 orderAmount: subtotal,
                 shippingAddress: {
@@ -49,20 +49,20 @@ router.post('/placeorder', async(req, res) =>{
             res.send("Payment failed")
         }
     } catch (error) {
-        return res.status(400).json({message: "Something went wrong"});
+        return res.status(400).json({message: "Something went wrong " + error});
     }
 
 });
 
 router.post ("/getuserorders", async(req, res) =>{
 
-    const {userId} = req.body
+    const {userid} = req.body
     try {
-        const orders = await find({userId: userId}).sort({_id: -1})
+        const orders = await find({userid: userid}).sort({_id: -1})
         res.send(orders)
     } catch (error) {
         return res.status(400).json({message:'Something went wrong'});
     }
 
 });
-export default router
+module.exports = router

@@ -1,17 +1,17 @@
-import Router from "express";
-import mongoose from "mongoose";
-import meals from "../models/mealsModel";
+const express = require('express');
+const Meals = require("../models/mealsModel");
 
-const router = Router();
+const router = express.Router();
 
 router.get("/getallmeals", async(req, res)=>{
 
     try{
-        const meals = await meals.find({})
+        const meals = await Meals.find({})
         res.send(meals)
     }catch(error){
         return res.status(400).json({message: error})
     }
 
-})
-export default router;
+});
+
+module.exports = router;

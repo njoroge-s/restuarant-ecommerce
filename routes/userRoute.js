@@ -1,6 +1,6 @@
 const express = require("express");
-import user from "../models/userModel";
-const router = router();
+const user =require("../models/userModel");
+const router = express.Router();
 
 router.post("/register", async(req, res) => {
 
@@ -14,7 +14,7 @@ router.post("/register", async(req, res) => {
     }  catch(error){
         return res.status(400).json({message: error});
     }
-})
+});
 
 router.post("/login", async(req, res) => {
 

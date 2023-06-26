@@ -3,14 +3,15 @@ import {Modal} from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart } from "../actions/cartAction";
 
-export default function meals({meals}){ 
-    const dispatch = useDispatch()
+export default function Meals({meals}){ 
     const[quantity, setquantity] = useState(1)
     const[varient, setvarient] = useState("small")
     const [show, setShow] = useState(false);
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const dispatch = useDispatch()
     function addtocart()
     {
         dispatch(addtocart(meals, quantity, varient))
@@ -27,7 +28,7 @@ export default function meals({meals}){
             </div>
             <div className="flex-container">
                 <div className="w-100 m-1">
-                    <p>varients</p>
+                    <p>Varients</p>
                     <select className="form-control" value={varient} onChange={(e)=>{setvarient(e.target.value)}}>
                         {meals.varients.map(varient=>{
                             return <option value={varient}>{varient}</option>
@@ -51,7 +52,7 @@ export default function meals({meals}){
                     <button className="btn" onClick={addtocart}>ADD TO CART</button>
                 </div>
             </div>
-            <Modal show={show}>
+            <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{meals.name}</Modal.Title>
         </Modal.Header>

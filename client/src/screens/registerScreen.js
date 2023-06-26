@@ -5,7 +5,7 @@ import Loading from "../components/loading";
 import Success from "../components/success";
 import Error from "../components/error";
 
-export default function registerScreen () {
+export default function RegisterScreen () {
 
     const[name, setname] = useState('');
     const[email, setemail] = useState('');

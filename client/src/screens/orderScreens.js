@@ -5,10 +5,10 @@ import Loading from "../components/loading";
 import Error from "../components/error";
 
 
-export default function orderScreen(){
+export default function OrderScreen(){
 
     const dispatch = useDispatch()
-    const orderstate = useSelector(state=>state.getUserOrdersReducer)
+    const orderstate = useSelector(state=>state.getUserOrderReducer)
     const {orders, error, loading} = orderstate
 
     useEffect(()=>{

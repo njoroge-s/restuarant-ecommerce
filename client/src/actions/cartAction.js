@@ -13,7 +13,7 @@ export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
 
     }
 
-    if(cartItem.quantity > 10)
+    if(cartItem.quantity>10)
     {
         alert ("Maximum items is 10")
     }
@@ -38,6 +38,7 @@ export const addtocart=(meals, quantity, varient)=>(dispatch, getState)=>{
 export const deleteFromCart = (meals) => (dispatch, getState)=>{
 
     dispatch({type: "DELETE_FROM_CART", payload:meals})
+    
     const cartItems = getState().cartReducer.cartItems
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
 

@@ -3,8 +3,8 @@ import { useSelector, useDispatch} from "react-redux";
 import { logoutuser } from "../actions/userActions";
 
 export default function Navbar() {
-    const cartState = useSelector(state=>state.cartReducer);
-    const userstate = useSelector(state=>state.loginUserReducer);
+    const cartstate = useSelector(state=>state.cartReducer)
+    const userstate = useSelector(state=>state.loginUserReducer)
     const {currentUser} = userstate;
     const dispatch = useDispatch();
     return (
@@ -33,7 +33,7 @@ export default function Navbar() {
                         </a>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a className="dropdown-item" href="/orders">Orders</a>
-                          <a className="dropdown-item" href="#" onAuxClick={()=>{dispatch(logoutuser)}}><li>Logout</li></a>
+                          <a className="dropdown-item" href="#" onClick={()=>{dispatch(logoutuser)}}><li>Logout</li></a>
                         </div>
                       </div>
                     ) : (
@@ -47,7 +47,7 @@ export default function Navbar() {
                     
                     <li className="nav-item">
                         <a className="nav-link" href="/cart">
-                            Cart {cartState.cartItems.length}
+                            Cart {cartstate.cartItems.length}
                             </a>
                     </li>
                 </ul>
