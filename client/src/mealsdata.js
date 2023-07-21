@@ -11,7 +11,7 @@ const meals = [
       ],
       description: 'A juicy beef patty topped with cheddar cheese, lettuce, tomato, pickles, and our special house sauce. Served with a side of crispy fries.',
       allergens: ['Gluten', 'Dairy'],
-      imageUrl: 'https://mymarios.com/pystedod/2020/04/Classic-Burger-MARIOSBurgers-MJ6280-25.7.2020-online.png'
+      imageUrl: 'https://media.istockphoto.com/id/157696235/photo/simple-meat-burger-isolated-on-white.jpg?s=612x612&w=0&k=20&c=zzFK5ChMFy0ZV8jVJRdPHk9muw7dGnLnKPvc8itIdPY='
     },
     {
       name: 'Margherita Pizza',

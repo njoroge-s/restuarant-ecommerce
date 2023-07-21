@@ -19,7 +19,7 @@ export default function RegisterScreen () {
 
     function register (){
 
-        if(password!==cpassword)
+        if(password!=cpassword)
         {
             alert("password does not match")
         }

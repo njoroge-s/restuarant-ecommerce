@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ReactDOM from "react-dom";
 import { loginUser } from "../actions/userActions";
 import Error from "../components/error";
 import Loading from "../components/loading";
@@ -9,35 +10,44 @@ export default function LogInScreen() {
     const dispatch = useDispatch ()
     const[email, setemail] = useState('');
     const[password, setpassword] = useState('');
-    const loginstate = useSelector(state=>state.loginUserReducer)
-    const {loading, error} = loginstate
+    const loginstate = useSelector(state=>state.loginUserReducer);
+    const {loading, error} = loginstate;
     
     
     useEffect(()=>{
         if(localStorage.getItem('currentUser'))
         {
-            window.location.href= '/'
+            window.location.href= '/';
         }
-    }, [])
+    }, []);
 
-    function login(){
+    const login=()=>{
         const user = {email, password}
-        dispatch(loginUser(user))
-    }
+        dispatch(loginUser(user));
+    };
     return(
         <div>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
                     <h2 className="text-center m-2" style={{fontSize:'35px'}}>
-                        login
+                        Login
                     </h2>
 
                     {loading && (<Loading/>)}
-                    {error && (<Error error='Invalid credentials'/>)}
+                    {error && <Error error={error} />}
+
                     <div>
-                        <input required type="text" placeholder="email" className="form-control" value={email} onChange={(e)=>{setemail(e.target.value)}}/>
+                        
                         <input 
                             type="text"
+                            required
+                            placeholder="email" 
+                            className="form-control"
+                            value={email}
+                            onChange={(e)=>{setemail(e.target.value)}}
+                        />
+                        <input 
+                            type="password"
                             required
                             placeholder="password" 
                             className="form-control"
@@ -52,5 +62,6 @@ export default function LogInScreen() {
             </div>
 
         </div>
-    )
+    );
 }
+ReactDOM.render(<LogInScreen />, document.getElementById("root"));
